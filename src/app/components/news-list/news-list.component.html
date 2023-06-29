@@ -1,0 +1,19 @@
+<app-modal-add-news *ngIf="showModal" (close)="showModal = false"></app-modal-add-news>
+<div class="btn-container">
+  <button (click)="showModal = true">Добавить новость</button>
+</div>
+<ul class="cards" infinite-scroll
+    (scrolled)="onScrollDown($event)"
+    (scrolledUp)="onScrollUp($event)">
+  <li class="cards-card" *ngFor="let news of newsArr" [routerLink]="['/news', news.id]">
+    <div class="img">
+      <img src="{{ news.titleImageUrl }}">
+    </div>
+    <div class="txt">
+      <p class="title">{{ news.title }}</p>
+      <p class="descr">{{ news.description }}</p>
+      <p class="date">{{ news.publishedDate | date:'dd.MM.YYYY'}}</p>
+    </div>
+  </li>
+
+</ul>

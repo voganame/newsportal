@@ -1,0 +1,13 @@
+<div class="backdrop" (click)="close.emit()"></div>
+<div class="modal">
+  <button class="closeBtn" (click)="close.emit()">X</button>
+
+  <p>Название</p>
+  <input type="text" size="35" [(ngModel)]="fileData.title">
+  <p>Описание</p>
+  <input type="text" size="35" [(ngModel)]="fileData.description">
+  <p>Прикрепить фото</p>
+  <input type="file" (change)="onFileSelected($event)">
+  <br>
+  <button (click)="save()">Сохранить</button>
+</div>

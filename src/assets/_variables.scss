@@ -1,0 +1,17 @@
+
+$accent: #ccc;
+
+@mixin breakpoint($point) {
+  @if $point == lg {
+    @media (max-width: 992px) {@content}
+  }
+  @if $point == md {
+    @media (max-width: 768px) {@content}
+  }
+  @if $point == sm {
+    @media (max-width: 576px) {@content}
+  }
+  @if $point == xs {
+    @media (max-width: 300px) {@content}
+  }
+}
