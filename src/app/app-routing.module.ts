@@ -7,6 +7,7 @@ import {NewsPostComponent} from "./components/news-post/news-post.component";
 const routes: Routes = [
   {path: 'news', component: NewsListComponent},
   {path: 'news/:id', component: NewsPostComponent},
+  {path: '**', redirectTo: '/news'}
 ];
 
 @NgModule({
