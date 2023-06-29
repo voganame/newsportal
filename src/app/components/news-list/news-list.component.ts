@@ -12,7 +12,7 @@ export class NewsListComponent implements OnInit {
   constructor(private http: HttpClient, private LocalService: LocalStorageService, private HelpersService: HelpersService) {
   }
 
-  newsArr: any = []
+  newsArr: any
   page: number = 1
   perPage: number = 20
   totalCount: number = 1

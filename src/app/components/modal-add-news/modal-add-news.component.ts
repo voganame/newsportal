@@ -2,7 +2,6 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {LocalStorageService} from '../../services/local-storage.service'
 import {HelpersService} from '../../services/helpers.service'
 
-
 @Component({
   selector: 'app-modal-add-news',
   templateUrl: './modal-add-news.component.html',
@@ -14,7 +13,7 @@ export class ModalAddNewsComponent {
   @Output() close = new EventEmitter<void>()
 
   fileData = {
-    id: 0,
+    id: '',
     title: '',
     description: '',
     titleImageUrl: '',
@@ -36,6 +35,8 @@ export class ModalAddNewsComponent {
   save() {
     if(this.fileData.title && this.fileData.description && this.fileData.titleImageUrl) {
       this.fileData.publishedDate = new Date().toString()
+      this.fileData.id = this.HelpersService.randomString(8)
+
       this.LocalStorage.addNews(this.fileData)
       this.HelpersService.addPost(this.fileData)
     }

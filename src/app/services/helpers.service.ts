@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {LocalStorageService} from "./local-storage.service";
 
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class HelpersService {
 
   constructor(private http: HttpClient, private LocalService: LocalStorageService) {}
@@ -20,7 +22,6 @@ export class HelpersService {
       if(userNewsValue) {
         this.newsArr.push(...(JSON.parse(userNewsValue)))
       }
-
       this.onInitList = true
     }
 
@@ -47,6 +48,15 @@ export class HelpersService {
 
   addPost(postData: any) {
     this.newsArr.push(postData)
+  }
+
+  randomString(length) {
+    let randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    let result = ''
+    for ( let i = 0; i < length; i++ ) {
+      result += randomChars.charAt(Math.floor(Math.random() * randomChars.length))
+    }
+    return result
   }
 
 
