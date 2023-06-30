@@ -30,7 +30,7 @@ export class HelpersService {
 
   fetchNews(page: number, perPage: number) {
     if(this.newsArr.length >= this.totalCount) {
-      return
+      return this.newsArr
     }
 
     this.http.get<any>('https://webapi.autodoc.ru/api/news/' + page + '/' + perPage)
